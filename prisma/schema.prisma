@@ -7,7 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
   id Int @id @default(autoincrement())
   name String
@@ -22,6 +21,17 @@ model Product {
   descrition String
   price Int
   descount Int
-  pricebase Int
-  isAvaiable Boolean
+  pricebase Int?
+  isAvaiable Boolean?
+  createAt DateTime @default(now())
+}
+
+
+model Post {
+  id Int @id @default(autoincrement())
+  title String
+  descrition String
+  imgUrl String
+  createAt DateTime @default(now())
+  updateAt DateTime @default(now())
 }
