@@ -4,5 +4,6 @@ const product_controllers_1 = require("../controllers/product-controllers");
 const productsRoutes = (app) => {
     app.post("/product", product_controllers_1.create);
     app.get("/product", product_controllers_1.get);
+    app.delete("/product", product_controllers_1.remove);
 };
 exports.default = productsRoutes;

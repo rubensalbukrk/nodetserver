@@ -9,25 +9,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get = exports.create = void 0;
+exports.remove = exports.get = exports.create = void 0;
 const products_repository_1 = require("../repositorys/products-repository");
 const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const product = yield (0, products_repository_1.createProduct)(req.body);
+        const product = yield (0, products_repository_1._createProduct)(req.body);
         res.status(200).send(product);
     }
-    catch (error) {
-        res.status(400).send(error);
+    catch (e) {
+        res.status(400).send(e);
     }
 });
 exports.create = create;
 const get = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const allProducts = yield (0, products_repository_1.getProducts)();
+        const allProducts = yield (0, products_repository_1._getProducts)();
         res.status(200).send(allProducts);
     }
-    catch (error) {
-        res.status(400).send(`Erro encontrado: ${error}`);
+    catch (e) {
+        res.status(400).send(`Houve um problema com o servidor: ${e}`);
     }
 });
 exports.get = get;
+const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const removeProduct = yield (0, products_repository_1._removeProduct)(req.body.id);
+        res.status(200).send('Produto foi removido do banco de dados!');
+    }
+    catch (e) {
+        res.status(400).send(`O produto não foi encontrado, houve um problema: ${e}`);
+    }
+});
+exports.remove = remove;

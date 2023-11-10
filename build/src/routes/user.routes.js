@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const user_controlers_1 = require("../controllers/user-controlers");
+const users_controllers_1 = require("../controllers/users-controllers");
 const userRoutes = (app) => {
-    app.get("/users", user_controlers_1.get);
-    app.post("/users", user_controlers_1.create);
+    app.get("/users", users_controllers_1.get);
+    app.post("/users", users_controllers_1.create);
+    app.delete("/users", users_controllers_1.remove);
 };
 exports.default = userRoutes;

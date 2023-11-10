@@ -9,25 +9,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._removeProduct = exports._getProducts = exports._createProduct = void 0;
+exports._removeUser = exports._getUsers = exports._createUser = void 0;
 const prisma_1 = require("../services/prisma");
-const _createProduct = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    const product = yield prisma_1.prisma.product.create({
+const _createUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield prisma_1.prisma.user.create({
         data
     });
-    return product;
+    return user;
 });
-exports._createProduct = _createProduct;
-const _getProducts = () => __awaiter(void 0, void 0, void 0, function* () {
-    const allProducts = yield prisma_1.prisma.product.findMany();
-    return allProducts;
+exports._createUser = _createUser;
+const _getUsers = () => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield prisma_1.prisma.user.findMany();
+    return users;
 });
-exports._getProducts = _getProducts;
-const _removeProduct = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const removedProduct = yield prisma_1.prisma.product.delete({
+exports._getUsers = _getUsers;
+const _removeUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const removeUser = yield prisma_1.prisma.user.delete({
         where: {
             id
         }
     });
 });
-exports._removeProduct = _removeProduct;
+exports._removeUser = _removeUser;
